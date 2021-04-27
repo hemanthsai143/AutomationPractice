@@ -1,0 +1,255 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-04-27T12:33:27.345Z",
+        "before": [
+          {
+            "result": {
+              "duration": 12102000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.Stepdefinitions.initServices()"
+            }
+          }
+        ],
+        "line": 18,
+        "name": "Verify new user is able to register in automation practice website successfully",
+        "description": "",
+        "id": "new-user-registration-and-placing-order;verify-new-user-is-able-to-register-in-automation-practice-website-successfully;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 16208000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user launches the browser with base url and clicks on signin button",
+            "match": {
+              "location": "stepdefinitions.Stepdefinitions.launchBrowser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3967000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user enters \"kihhggd123@gmail.com\" and click on create account button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"kihhggd123@gmail.com\"",
+                  "offset": 12
+                }
+              ],
+              "location": "stepdefinitions.Stepdefinitions.user_enters_and_click_on_create_account_button(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 15138000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user enters all the details for registration",
+            "match": {
+              "location": "stepdefinitions.Stepdefinitions.user_enters_all_the_details_for_registration(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "firstName",
+                  "lastName",
+                  "password",
+                  "day",
+                  "month",
+                  "year",
+                  "address",
+                  "city",
+                  "state",
+                  "postcode",
+                  "country",
+                  "phone"
+                ]
+              },
+              {
+                "cells": [
+                  "Hemanth",
+                  "Sai",
+                  "Hemanth@89",
+                  "23",
+                  "3",
+                  "1996",
+                  "Arrow Highway",
+                  "Los Angeles",
+                  "California",
+                  "00000",
+                  "United States",
+                  "94444421"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3249000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "validate user registration is successful or not.",
+            "match": {
+              "location": "stepdefinitions.Stepdefinitions.validate_user_registration_is_successful_or_not(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "firstName",
+                  "lastName"
+                ]
+              },
+              {
+                "cells": [
+                  "Hemanth",
+                  "Sai"
+                ]
+              }
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3691000000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "logout from the application.",
+            "match": {
+              "location": "stepdefinitions.Stepdefinitions.logout_from_the_application()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-04-27T12:34:22.269Z",
+        "before": [
+          {
+            "result": {
+              "duration": 8176000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.Stepdefinitions.initServices()"
+            }
+          }
+        ],
+        "line": 30,
+        "name": "Verify registered user is able to place order in automation practice website successfully",
+        "description": "",
+        "id": "new-user-registration-and-placing-order;verify-registered-user-is-able-to-place-order-in-automation-practice-website-successfully;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 21608000000,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "user launches the browser with base url and clicks on signin button",
+            "match": {
+              "location": "stepdefinitions.Stepdefinitions.launchBrowser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 11624000000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "user enters \"Hemanth11@gmail.com\" and \"Hemanth@55\" and click on signin button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Hemanth11@gmail.com\"",
+                  "offset": 12
+                },
+                {
+                  "val": "\"Hemanth@55\"",
+                  "offset": 38
+                }
+              ],
+              "location": "stepdefinitions.Stepdefinitions.user_enters_and_and_click_on_signin_button(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 57169000000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "place order by selecting the \"Women\" and \"Faded Short Sleeve T-shirts\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Women\"",
+                  "offset": 29
+                },
+                {
+                  "val": "\"Faded Short Sleeve T-shirts\"",
+                  "offset": 41
+                }
+              ],
+              "location": "stepdefinitions.Stepdefinitions.place_order_by_selecting_the_and(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 235000000,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "verify \"Faded Short Sleeve T-shirts\" details are correct in the payment page.",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Faded Short Sleeve T-shirts\"",
+                  "offset": 7
+                }
+              ],
+              "location": "stepdefinitions.Stepdefinitions.verify_details_are_correct_in_the_payment_page(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      }
+    ],
+    "name": "New User Registration and placing order",
+    "description": "",
+    "id": "new-user-registration-and-placing-order",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/com/features/RegistrationandShopping.feature",
+    "tags": []
+  }
+]

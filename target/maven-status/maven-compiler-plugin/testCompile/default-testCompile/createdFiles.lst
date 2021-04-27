@@ -1,0 +1,6 @@
+com\utils\Base.class
+com\pages\LandingPage.class
+com\pages\ShoppingcartPage.class
+com\pages\UserProfilePage.class
+stepdefinitions\Stepdefinitions.class
+com\testrunner\TestRunner.class

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="155.046">
+<testcase classname="New User Registration and placing order" name="Verify new user is able to register in automation practice website successfully" time="54.697">
+<system-out><![CDATA[Given user launches the browser with base url and clicks on signin button...passed
+When user enters "kihhggd123@gmail.com" and click on create account button..passed
+And user enters all the details for registration............................passed
+Then validate user registration is successful or not........................passed
+And logout from the application.............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="New User Registration and placing order" name="Verify registered user is able to place order in automation practice website successfully" time="98.827">
+<system-out><![CDATA[Given user launches the browser with base url and clicks on signin button...passed
+When user enters "Hemanth11@gmail.com" and "Hemanth@55" and click on signin button.passed
+And place order by selecting the "Women" and "Faded Short Sleeve T-shirts"..passed
+Then verify "Faded Short Sleeve T-shirts" details are correct in the payment page..passed
+]]></system-out>
+</testcase>
+</testsuite>
