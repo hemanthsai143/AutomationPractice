@@ -29,7 +29,6 @@ public class Stepdefinitions extends Base{
 		public static WebDriver driver;
 		public static  Properties p;
 		LandingPage landingPage;
-		
 		UserProfilePage userProfilePage;
 		ShoppingcartPage shoppingcartPage;
 	
@@ -41,11 +40,9 @@ public class Stepdefinitions extends Base{
 		
 	      p= loadProperties();
 	     landingPage=new LandingPage(driver);
-	     
 	     userProfilePage=new UserProfilePage(driver);
 	     shoppingcartPage=new ShoppingcartPage(driver);
-	     
-	    }
+	 }
 	
 	
 	
@@ -53,8 +50,7 @@ public class Stepdefinitions extends Base{
 	public void launchBrowser() {
 		
 			  driver.get(p.getProperty("url"));
-			 
-		      driver.manage().window().maximize();
+			  driver.manage().window().maximize();
 		      landingPage.landingpageSignin();
 	   
 	}
@@ -103,7 +99,6 @@ public class Stepdefinitions extends Base{
 		shoppingcartPage.selectCategory(category);
 		shoppingcartPage.scrolldown();
 		shoppingcartPage.selectItem(item);
-		Thread.sleep(3000);
 		shoppingcartPage.paymentsPageCheckout();
 		}
 	

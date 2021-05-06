@@ -6,7 +6,6 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class Base {
@@ -29,7 +28,7 @@ public class Base {
 		}
 		else if(browserName.equalsIgnoreCase("IE"))
 		{
-			System.setProperty("webdriver.IE.driver", prop.getProperty("iebrowserPath"));
+			System.setProperty("webdriver.ie.driver", prop.getProperty("iedriverPath"));
 			driver=new InternetExplorerDriver();
 		}
 		

@@ -5,7 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
@@ -14,6 +16,8 @@ public class UserProfilePage {
 	
 	
 	public WebDriver driver;
+	WebDriverWait w;
+	
 	public UserProfilePage(WebDriver driver) 
 	{
 		this.driver=driver;
@@ -104,6 +108,9 @@ public class UserProfilePage {
 	@FindBy(xpath="//*[@class='header_user_info']//*[@class='logout']")
 	WebElement logout;
 	
+	@FindBy(xpath="//*[text()='Your personal information']")
+	WebElement userprofilePage;
+	
 	
 	
 	
@@ -111,8 +118,8 @@ public class UserProfilePage {
 	
 	public void setUserdata(String name,String lastname,String pass,String day,String month,String year) throws InterruptedException
 	{
-		//LandSignin.click();
-		Thread.sleep(3000);
+		w=new WebDriverWait(driver, 5);
+		w.until(ExpectedConditions.visibilityOfAllElements(userprofilePage));
 		Title_Mr.click();
 		Firstname.sendKeys(name);
 		Lastname.sendKeys(lastname);
@@ -122,8 +129,7 @@ public class UserProfilePage {
 		s.selectByValue(day);
 		Month.click();
 		Select s1=new Select(Month);
-
-		s1.selectByIndex(Integer.parseInt(month));
+        s1.selectByIndex(Integer.parseInt(month));
 		Year.click();
 		Select s2=new Select(Year);
 		s2.selectByValue(year);
@@ -157,14 +163,11 @@ public class UserProfilePage {
 	
 	public void validateUserinfo(String fname,String lastname) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		w=new WebDriverWait(driver, 3);
+		w.until(ExpectedConditions.visibilityOfAllElements(userinfo));
 		String name[]=userinfo.getText().split("\\s");
 		Assert.assertTrue("user details are incorrect",fname.equalsIgnoreCase(name[0]));
 		Assert.assertTrue("user details are incorrect",lastname.equalsIgnoreCase(name[1]));
-		
-	
-		
-		
 		
 	}
 	

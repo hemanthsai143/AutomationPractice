@@ -1,5 +1,7 @@
 package com.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class ShoppingcartPage {
@@ -19,7 +23,7 @@ public class ShoppingcartPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
+	WebDriverWait w;
 	
 	
 	@FindBy(xpath="//*[text()='Add to cart']")
@@ -40,6 +44,10 @@ public class ShoppingcartPage {
 	@FindBy(xpath="//table[@id='cart_summary']/tbody/tr/td[2]/p/a")
 	WebElement cartSummary;
 	
+	@FindBy(xpath="//*[@id='order_step']/li[1]/span")
+	WebElement ordercheckoutPage;
+	
+	
 	
 	
 	
@@ -47,23 +55,25 @@ public class ShoppingcartPage {
 	public void selectCategory(String category) throws InterruptedException
 	{
 		
-
+       
 		driver.findElement(By.xpath("//*[text()='"+category+"']")).click();
-		Thread.sleep(3000);
+		
 	}
 	
 	public void selectItem(String item) throws InterruptedException
 	{
-		
+		w=new WebDriverWait(driver, 5);
+		w.until(ExpectedConditions.visibilityOfAllElements(driver.findElement(By.xpath("//div[@class='product-image-container']//a[@title='"+item+"']"))));
 
 		driver.findElement(By.xpath("//div[@class='product-image-container']//a[@title='"+item+"']")).click();
-		Thread.sleep(8000);
+		
 	}
 	
 	public void addtoCart() throws InterruptedException
 	{
+		w=new WebDriverWait(driver, 8);
+		w.until(ExpectedConditions.visibilityOfAllElements(addtoCart));
 		addtoCart.click();
-		Thread.sleep(3000);
 	}
 	
 	public void switchtoframe()
@@ -78,16 +88,18 @@ public class ShoppingcartPage {
 	
 	public void checkout() throws InterruptedException
 	{
-		
+		w=new WebDriverWait(driver, 3);
+		w.until(ExpectedConditions.visibilityOfAllElements(checkout));
 
 		checkout.click();
-		Thread.sleep(3000);
+		
 		}
 	
 	public void checkoutshippingPage() throws InterruptedException
 	{
 		checkoutshippingPage.click();
-		Thread.sleep(3000);
+		
+		
 		}
 	
 	public void finalcheckout() throws InterruptedException
@@ -95,22 +107,29 @@ public class ShoppingcartPage {
 		
 
 		finalcheckout.click();
-		Thread.sleep(3000);
+		
 		
 	}
 	
 	public void paymentsPageCheckout() throws InterruptedException
 	{
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		
        switchtoframe();
 		scrolldown();
 		addtoCart();
 		switchtodefaultContent();
 		checkout();
-		Thread.sleep(5000);
+		
+		w=new WebDriverWait(driver, 5);
+		w.until(ExpectedConditions.visibilityOfAllElements(ordercheckoutPage));
 		scrolldownbottom();
 		finalcheckout();
 		scrolldownbottom();
 		finalcheckout();
+		scrolldown();
+		
+		w.until(ExpectedConditions.visibilityOfAllElements(checkoutshippingPage));
 		termsandconditionsButton.click();
 		checkoutshippingPage();
 		
@@ -133,6 +152,8 @@ public class ShoppingcartPage {
 	public void verifyOrderdetails(String productname)
 	{
 		System.out.println(cartSummary.getText());
+		w=new WebDriverWait(driver, 3);
+		w.until(ExpectedConditions.visibilityOfAllElements(cartSummary));
 		
 		Assert.assertTrue("order details are incorrect",productname.equalsIgnoreCase(cartSummary.getText()));
 	}
