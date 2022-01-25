@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-04-27T12:33:27.345Z",
+        "start_timestamp": "2022-01-25T02:26:35.639Z",
         "before": [
           {
             "result": {
-              "duration": 12102000000,
+              "duration": 1778979500,
               "status": "passed"
             },
             "match": {
@@ -15,110 +15,109 @@
             }
           }
         ],
-        "line": 18,
-        "name": "Verify new user is able to register in automation practice website successfully",
+        "line": 4,
+        "name": "Verify user is able to estimate loan by using loan calculator in ANZ portal.",
         "description": "",
-        "id": "new-user-registration-and-placing-order;verify-new-user-is-able-to-register-in-automation-practice-website-successfully;;2",
+        "id": "home-loan-calculator;verify-user-is-able-to-estimate-loan-by-using-loan-calculator-in-anz-portal.",
+        "after": [
+          {
+            "result": {
+              "duration": 4134661500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.Stepdefinitions.closebrowser()"
+            }
+          }
+        ],
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 16208000000,
+              "duration": 6583335900,
               "status": "passed"
             },
             "line": 5,
-            "name": "user launches the browser with base url and clicks on signin button",
+            "name": "user launches the browser with base url.",
             "match": {
-              "location": "stepdefinitions.Stepdefinitions.launchBrowser()"
+              "location": "stepdefinitions.Stepdefinitions.user_launches_the_browser_with_base_url()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 3967000000,
+              "duration": 2120221600,
               "status": "passed"
             },
             "line": 6,
-            "name": "user enters \"kihhggd123@gmail.com\" and click on create account button",
+            "name": "user enters all the details for estimation.",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"kihhggd123@gmail.com\"",
-                  "offset": 12
-                }
-              ],
-              "location": "stepdefinitions.Stepdefinitions.user_enters_and_click_on_create_account_button(java.lang.String)"
+              "location": "stepdefinitions.Stepdefinitions.user_enters_all_the_details_for_estimation(io.cucumber.datatable.DataTable)"
             },
+            "rows": [
+              {
+                "cells": [
+                  "Application type",
+                  "Dependents",
+                  "PropertyType",
+                  "AnnualIncome",
+                  "Otherincome",
+                  "monthlylivingExpenses",
+                  "homeloan",
+                  "otherloan",
+                  "monthlycommitments",
+                  "totalcreditlimits"
+                ]
+              },
+              {
+                "cells": [
+                  "Single",
+                  "0",
+                  "Home",
+                  "80,000",
+                  "10,000",
+                  "500",
+                  "0",
+                  "100",
+                  "0",
+                  "10,000"
+                ]
+              }
+            ],
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 15138000000,
+              "duration": 256478100,
               "status": "passed"
             },
-            "line": 7,
-            "name": "user enters all the details for registration",
+            "line": 9,
+            "name": "click on borrow button",
             "match": {
-              "location": "stepdefinitions.Stepdefinitions.user_enters_all_the_details_for_registration(io.cucumber.datatable.DataTable)"
+              "location": "stepdefinitions.Stepdefinitions.click_on_borrow_button()"
             },
-            "rows": [
-              {
-                "cells": [
-                  "firstName",
-                  "lastName",
-                  "password",
-                  "day",
-                  "month",
-                  "year",
-                  "address",
-                  "city",
-                  "state",
-                  "postcode",
-                  "country",
-                  "phone"
-                ]
-              },
-              {
-                "cells": [
-                  "Hemanth",
-                  "Sai",
-                  "Hemanth@89",
-                  "23",
-                  "3",
-                  "1996",
-                  "Arrow Highway",
-                  "Los Angeles",
-                  "California",
-                  "00000",
-                  "United States",
-                  "94444421"
-                ]
-              }
-            ],
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 3249000000,
+              "duration": 1247386600,
               "status": "passed"
             },
             "line": 10,
-            "name": "validate user registration is successful or not.",
+            "name": "validate borrowing estimated amount.",
             "match": {
-              "location": "stepdefinitions.Stepdefinitions.validate_user_registration_is_successful_or_not(io.cucumber.datatable.DataTable)"
+              "location": "stepdefinitions.Stepdefinitions.validate_borrowing_estimated_amount(io.cucumber.datatable.DataTable)"
             },
             "rows": [
               {
                 "cells": [
-                  "firstName",
-                  "lastName"
+                  "amount"
                 ]
               },
               {
                 "cells": [
-                  "Hemanth",
-                  "Sai"
+                  "$482,000"
                 ]
               }
             ],
@@ -126,115 +125,74 @@
           },
           {
             "result": {
-              "duration": 3691000000,
+              "duration": 203863300,
               "status": "passed"
             },
             "line": 13,
-            "name": "logout from the application.",
+            "name": "user clicks on startover button.",
             "match": {
-              "location": "stepdefinitions.Stepdefinitions.logout_from_the_application()"
+              "location": "stepdefinitions.Stepdefinitions.user_clicks_on_startover_button()"
             },
             "keyword": "And "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@test"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2021-04-27T12:34:22.269Z",
-        "before": [
-          {
-            "result": {
-              "duration": 8176000000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "stepdefinitions.Stepdefinitions.initServices()"
-            }
-          }
-        ],
-        "line": 30,
-        "name": "Verify registered user is able to place order in automation practice website successfully",
-        "description": "",
-        "id": "new-user-registration-and-placing-order;verify-registered-user-is-able-to-place-order-in-automation-practice-website-successfully;;2",
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 21608000000,
-              "status": "passed"
-            },
-            "line": 22,
-            "name": "user launches the browser with base url and clicks on signin button",
-            "match": {
-              "location": "stepdefinitions.Stepdefinitions.launchBrowser()"
-            },
-            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 11624000000,
+              "duration": 126086600,
               "status": "passed"
             },
-            "line": 23,
-            "name": "user enters \"Hemanth11@gmail.com\" and \"Hemanth@55\" and click on signin button",
+            "line": 14,
+            "name": "user enters living expenses fields by leaving all the other fields.",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"Hemanth11@gmail.com\"",
-                  "offset": 12
-                },
-                {
-                  "val": "\"Hemanth@55\"",
-                  "offset": 38
-                }
-              ],
-              "location": "stepdefinitions.Stepdefinitions.user_enters_and_and_click_on_signin_button(java.lang.String,java.lang.String)"
+              "location": "stepdefinitions.Stepdefinitions.user_enters_living_expenses_fields_by_leaving_all_the_other_fields(io.cucumber.datatable.DataTable)"
             },
+            "rows": [
+              {
+                "cells": [
+                  "monthlylivingExpenses"
+                ]
+              },
+              {
+                "cells": [
+                  "1"
+                ]
+              }
+            ],
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 57169000000,
+              "duration": 246404000,
               "status": "passed"
             },
-            "line": 24,
-            "name": "place order by selecting the \"Women\" and \"Faded Short Sleeve T-shirts\"",
+            "line": 17,
+            "name": "click on borrow button",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"Women\"",
-                  "offset": 29
-                },
-                {
-                  "val": "\"Faded Short Sleeve T-shirts\"",
-                  "offset": 41
-                }
-              ],
-              "location": "stepdefinitions.Stepdefinitions.place_order_by_selecting_the_and(java.lang.String,java.lang.String)"
+              "location": "stepdefinitions.Stepdefinitions.click_on_borrow_button()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 235000000,
+              "duration": 639485900,
               "status": "passed"
             },
-            "line": 25,
-            "name": "verify \"Faded Short Sleeve T-shirts\" details are correct in the payment page.",
+            "line": 18,
+            "name": "verify releavant message is displaying on the screen.",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"Faded Short Sleeve T-shirts\"",
-                  "offset": 7
-                }
-              ],
-              "location": "stepdefinitions.Stepdefinitions.verify_details_are_correct_in_the_payment_page(java.lang.String)"
+              "location": "stepdefinitions.Stepdefinitions.verify_releavant_message_is_displaying_on_the_screen(io.cucumber.datatable.DataTable)"
             },
+            "rows": [
+              {
+                "cells": [
+                  "Message"
+                ]
+              },
+              {
+                "cells": [
+                  "Based on the details you\u0027ve entered, we\u0027re unable to give you an estimate of your borrowing power with this calculator. For questions, call us on 1800 035 500."
+                ]
+              }
+            ],
             "keyword": "Then "
           }
         ],
@@ -245,11 +203,11 @@
         ]
       }
     ],
-    "name": "New User Registration and placing order",
+    "name": "Home Loan calculator",
     "description": "",
-    "id": "new-user-registration-and-placing-order",
+    "id": "home-loan-calculator",
     "keyword": "Feature",
-    "uri": "file:src/test/java/com/features/RegistrationandShopping.feature",
+    "uri": "file:src/test/java/com/features/Homeloancalculator.feature",
     "tags": []
   }
 ]

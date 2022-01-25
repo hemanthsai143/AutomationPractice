@@ -10,13 +10,12 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 
 
-import com.pages.LandingPage;
-import com.pages.ShoppingcartPage;
-import com.pages.UserProfilePage;
+import com.pages.LoanestimationPage;
 
 import com.utils.Base;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -28,9 +27,7 @@ public class Stepdefinitions extends Base{
 	 
 		public static WebDriver driver;
 		public static  Properties p;
-		LandingPage landingPage;
-		UserProfilePage userProfilePage;
-		ShoppingcartPage shoppingcartPage;
+		LoanestimationPage loanestimationPage;
 	
 	
 	@Before
@@ -39,90 +36,86 @@ public class Stepdefinitions extends Base{
 		driver=initlializeDriver();
 		
 	      p= loadProperties();
-	     landingPage=new LandingPage(driver);
-	     userProfilePage=new UserProfilePage(driver);
-	     shoppingcartPage=new ShoppingcartPage(driver);
+	     loanestimationPage=new LoanestimationPage(driver);
+
 	 }
 	
-	
-	
-	@Given("user launches the browser with base url and clicks on signin button")
-	public void launchBrowser() {
-		
-			  driver.get(p.getProperty("url"));
-			  driver.manage().window().maximize();
-		      landingPage.landingpageSignin();
-	   
-	}
-	
-	
-	@When("user enters {string} and click on create account button")
-	public void user_enters_and_click_on_create_account_button(String newuserEmailid) throws InterruptedException {
+	@Given("user launches the browser with base url.")
+	public void user_launches_the_browser_with_base_url() {
+		  driver.get(p.getProperty("url"));
+		  driver.manage().window().maximize();
 
-		landingPage.createaccount(newuserEmailid);
-		
 	}
 	
 	
-	@And("user enters all the details for registration")
-	public void user_enters_all_the_details_for_registration(DataTable userDetails) throws InterruptedException {
+	@When("user enters all the details for estimation.")
+	public void user_enters_all_the_details_for_estimation(DataTable userDetails) {
 		List<List<String>> data=userDetails.asLists();
-		String firstname=data.get(1).get(0);
-		String lastname=data.get(1).get(1);
-		String pwd=data.get(1).get(2);
-		String dd=data.get(1).get(3);
-	    String mm=data.get(1).get(4).replaceAll("\\s","");
-	    String yy=data.get(1).get(5);
-	    String address=data.get(1).get(6);
-	    String city=data.get(1).get(7);
-	    String state=data.get(1).get(8);
-	    String pincode=data.get(1).get(9);
-	    String country=data.get(1).get(10);
-	    String phone=data.get(1).get(11);
-	    
-	    
-		userProfilePage.setUserdata(firstname,lastname,pwd,dd,mm,yy);
-		userProfilePage.setUseraddress(address, city, state, pincode, country, phone);
-		userProfilePage.click_on_register();
+		String applicationType=data.get(1).get(0);
+		loanestimationPage.singleapplicationtype(applicationType);
+        String numberofdependants=data.get(1).get(1);
+        loanestimationPage.selectnumberofdependants(numberofdependants);
+        String propertytype=data.get(1).get(2);
+        loanestimationPage.selectpropertytype(propertytype);
+        String annualincome=data.get(1).get(3);
+        String otherincome=data.get(1).get(4);
+        loanestimationPage.enterearningdetails(annualincome, otherincome);
+        String monthlylivingExpenses=data.get(1).get(5);
+        String homeloan=data.get(1).get(6);
+        String otherloan=data.get(1).get(7);
+        String monthlycommitments=data.get(1).get(8);
+        String totalcreditlimits=data.get(1).get(9);
+        loanestimationPage.enterexpensesDetails(monthlylivingExpenses, homeloan, otherloan, monthlycommitments, totalcreditlimits);
+
+
+
+		 }
+	
+	@Then("click on borrow button")
+	public void click_on_borrow_button() {		
+		loanestimationPage.clickonborrowbutton();
+	}
+
+	@Then("validate borrowing estimated amount.")
+	public void validate_borrowing_estimated_amount(DataTable amount ) {
+		List<List<String>> amountDetails=amount.asLists();
+		String actualAmount=amountDetails.get(1).get(0);
+		loanestimationPage.validateEstimation(actualAmount);
 		
-		}
-	
-	@When("user enters {string} and {string} and click on signin button")
-	public void user_enters_and_and_click_on_signin_button(String emailaddress, String password) throws InterruptedException {
-      landingPage.userLogin(emailaddress, password);
-      
-		
-		}
-	
-	@When("place order by selecting the {string} and {string}")
-	public void place_order_by_selecting_the_and(String category, String item) throws InterruptedException {
-		shoppingcartPage.selectCategory(category);
-		shoppingcartPage.scrolldown();
-		shoppingcartPage.selectItem(item);
-		shoppingcartPage.paymentsPageCheckout();
-		}
-	
-	
-	@Then("verify {string} details are correct in the payment page.")
-	public void verify_details_are_correct_in_the_payment_page(String productname) {
-		shoppingcartPage.verifyOrderdetails(productname);
-	    
+
 	}
 	
-	@Then("validate user registration is successful or not.")
-	public void validate_user_registration_is_successful_or_not(DataTable userinfo) throws InterruptedException {
-	    
-		List<List<String>> data=userinfo.asLists();
-		String fname=data.get(1).get(0);
-		String lname=data.get(1).get(1);
-		userProfilePage.validateUserinfo(fname, lname);
-		}
+	@Then("user clicks on startover button.")
+	public void user_clicks_on_startover_button() {
+		loanestimationPage.clickonstartoverbutton();
+	}
 
 	
-	
-	@And("logout from the application.")
-	public void logout_from_the_application() {
-	   userProfilePage.logout();
-	  
+	@When("user enters living expenses fields by leaving all the other fields.")
+	public void user_enters_living_expenses_fields_by_leaving_all_the_other_fields(DataTable requiredexpenses) {
+		List<List<String>> data=requiredexpenses.asLists();
+		String livingexpense=data.get(1).get(0);
+		loanestimationPage.enterrequiredExpenses(livingexpense);
+		
+
+		
 	}
+
+	
+
+	@Then("verify releavant message is displaying on the screen.")
+	public void verify_releavant_message_is_displaying_on_the_screen(DataTable messageDetails) {
+		List<List<String>> msg=messageDetails.asLists();
+		String requiredmessage=msg.get(1).get(0);
+        loanestimationPage.validateMessage(requiredmessage);
+		
+	}
+
+   @After
+   public void closebrowser()
+   {
+	   driver.close();
+   }
+	
+	
 }

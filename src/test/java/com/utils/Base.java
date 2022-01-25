@@ -6,7 +6,6 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class Base {
 	
@@ -17,21 +16,8 @@ public class Base {
 	public static WebDriver initlializeDriver() throws IOException
 	{
 		prop=loadProperties();
-		
-		String browserName=prop.getProperty("browser");
-		if(browserName.equalsIgnoreCase("chrome"))
-		{
-			System.setProperty("webdriver.chrome.driver",prop.getProperty("chromedriverPath"));
-			driver=new ChromeDriver();
-			
-			
-		}
-		else if(browserName.equalsIgnoreCase("IE"))
-		{
-			System.setProperty("webdriver.ie.driver", prop.getProperty("iedriverPath"));
-			driver=new InternetExplorerDriver();
-		}
-		
+		System.setProperty("webdriver.chrome.driver",prop.getProperty("chromedriverPath"));
+		driver=new ChromeDriver();
 		return driver;
 		
 	}

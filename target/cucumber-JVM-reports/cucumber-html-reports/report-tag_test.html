@@ -76,7 +76,7 @@ $(document).ready(function() {
           <tr class="info">
             <td>AutomationPractice</td>
                           <td>1</td>
-                        <td>27 Apr 2021, 17:49</td>
+                        <td>25 Jan 2022, 07:56</td>
           </tr>
         </tbody>
       </table>
@@ -129,18 +129,18 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">@test</td>
-                    <td      class="passed"    >9</td>
+                    <td      class="passed"    >8</td>
           <td >0</td>
           <td >0</td>
           <td >0</td>
           <td >0</td>
-          <td class="total">9</td>
+          <td class="total">8</td>
 
-          <td  class="passed"    >2</td>
+          <td  class="passed"    >1</td>
           <td >0</td>
-          <td class="total">2</td>
+          <td class="total">1</td>
 
-          <td class="duration" data-value="124536000000">2m 4s 536ms</td>
+          <td class="duration" data-value="11423262000">11s 423ms</td>
           <td class="passed">Passed</td>
         </tr>
         </tbody>
@@ -160,7 +160,7 @@ $(document).ready(function() {
                   
 <div class="element">
       <div class="indention">
-      <a href="report-feature_file-src-test-java-com-features-RegistrationandShopping-feature.html">View Feature</a> <i>New User Registration and placing order</i>
+      <a href="report-feature_file-src-test-java-com-features-Homeloancalculator-feature.html">View Feature</a> <i>Home Loan calculator</i>
     </div>
   
   
@@ -172,8 +172,8 @@ $(document).ready(function() {
     <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
     
 <div class="brief passed">
-  <span class="keyword indention">Scenario Outline</span>
-  <span class="name">Verify new user is able to register in automation practice website successfully</span>
+  <span class="keyword indention">Scenario</span>
+  <span class="name">Verify user is able to estimate loan by using loan calculator in ANZ portal.</span>
   
 
        <i class="chevron fa fa-fw"></i>
@@ -203,7 +203,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
                           <span class="location name">stepdefinitions.Stepdefinitions.initServices()</span>
                         
-  <span class="lead-duration duration">11s 992ms</span>
+  <span class="lead-duration duration">1s 778ms</span>
 
           </div>
 
@@ -236,9 +236,9 @@ $(document).ready(function() {
         
 <div class="brief passed">
   <span class="keyword indention">Given</span>
-  <span class="name">user launches the browser with base url and clicks on signin button</span>
+  <span class="name">user launches the browser with base url.</span>
   
-  <span class="lead-duration duration">12s 080ms</span>
+  <span class="lead-duration duration">6s 583ms</span>
 
   </div>
 
@@ -257,15 +257,41 @@ $(document).ready(function() {
         
 <div class="brief passed">
   <span class="keyword indention">When</span>
-  <span class="name">user enters "asdfsf123@gmail.com" and click on create account button</span>
+  <span class="name">user enters all the details for estimation.</span>
   
-  <span class="lead-duration duration">5s 030ms</span>
+  <span class="lead-duration duration">2s 120ms</span>
 
   </div>
 
         
 
 
+                  <table class="step-arguments">
+                          <tr>
+                                  <td>Application type</td>
+                                  <td>Dependents</td>
+                                  <td>PropertyType</td>
+                                  <td>AnnualIncome</td>
+                                  <td>Otherincome</td>
+                                  <td>monthlylivingExpenses</td>
+                                  <td>homeloan</td>
+                                  <td>otherloan</td>
+                                  <td>monthlycommitments</td>
+                                  <td>totalcreditlimits</td>
+                              </tr>
+                          <tr>
+                                  <td>Single</td>
+                                  <td>0</td>
+                                  <td>Home</td>
+                                  <td>80,000</td>
+                                  <td>10,000</td>
+                                  <td>500</td>
+                                  <td>0</td>
+                                  <td>100</td>
+                                  <td>0</td>
+                                  <td>10,000</td>
+                              </tr>
+                      </table>
         
         
 
@@ -278,45 +304,15 @@ $(document).ready(function() {
         
 <div class="brief passed">
   <span class="keyword indention">And</span>
-  <span class="name">user enters all the details for registration</span>
+  <span class="name">click on borrow button</span>
   
-  <span class="lead-duration duration">19s 835ms</span>
+  <span class="lead-duration duration">256ms</span>
 
   </div>
 
         
 
 
-                  <table class="step-arguments">
-                          <tr>
-                                  <td>firstName</td>
-                                  <td>lastName</td>
-                                  <td>password</td>
-                                  <td>day</td>
-                                  <td>month</td>
-                                  <td>year</td>
-                                  <td>address</td>
-                                  <td>city</td>
-                                  <td>state</td>
-                                  <td>postcode</td>
-                                  <td>country</td>
-                                  <td>phone</td>
-                              </tr>
-                          <tr>
-                                  <td>Hemanth</td>
-                                  <td>Sai</td>
-                                  <td>Hemanth@89</td>
-                                  <td>23</td>
-                                  <td>3</td>
-                                  <td>1996</td>
-                                  <td>Arrow Highway</td>
-                                  <td>Los Angeles</td>
-                                  <td>California</td>
-                                  <td>00000</td>
-                                  <td>United States</td>
-                                  <td>94444421</td>
-                              </tr>
-                      </table>
         
         
 
@@ -329,9 +325,9 @@ $(document).ready(function() {
         
 <div class="brief passed">
   <span class="keyword indention">Then</span>
-  <span class="name">validate user registration is successful or not.</span>
+  <span class="name">validate borrowing estimated amount.</span>
   
-  <span class="lead-duration duration">3s 170ms</span>
+  <span class="lead-duration duration">1s 247ms</span>
 
   </div>
 
@@ -340,12 +336,10 @@ $(document).ready(function() {
 
                   <table class="step-arguments">
                           <tr>
-                                  <td>firstName</td>
-                                  <td>lastName</td>
+                                  <td>amount</td>
                               </tr>
                           <tr>
-                                  <td>Hemanth</td>
-                                  <td>Sai</td>
+                                  <td>$482,000</td>
                               </tr>
                       </table>
         
@@ -360,9 +354,9 @@ $(document).ready(function() {
         
 <div class="brief passed">
   <span class="keyword indention">And</span>
-  <span class="name">logout from the application.</span>
+  <span class="name">user clicks on startover button.</span>
   
-  <span class="lead-duration duration">3s 636ms</span>
+  <span class="lead-duration duration">203ms</span>
 
   </div>
 
@@ -377,44 +371,92 @@ $(document).ready(function() {
         
 
       </div>
-      </div>
-</div>
-
-
-    
-
-  </div>
-</div>
-
-                  
-<div class="element">
-      <div class="indention">
-      <a href="report-feature_file-src-test-java-com-features-RegistrationandShopping-feature.html">View Feature</a> <i>New User Registration and placing order</i>
-    </div>
-  
-  
-<div class="tags indention">
-       <a href="report-tag_test.html">@test</a>
-  </div>
-
-
-    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-4">
-    
+          <div class="step">
+        
 <div class="brief passed">
-  <span class="keyword indention">Scenario Outline</span>
-  <span class="name">Verify registered user is able to place order in automation practice website successfully</span>
+  <span class="keyword indention">When</span>
+  <span class="name">user enters living expenses fields by leaving all the other fields.</span>
   
+  <span class="lead-duration duration">126ms</span>
 
-       <i class="chevron fa fa-fw"></i>
   </div>
 
-  </span>
-  <div class="description indention"></div>
+        
 
-  <div id="element-4" class="collapse collapsable-details ">
+
+                  <table class="step-arguments">
+                          <tr>
+                                  <td>monthlylivingExpenses</td>
+                              </tr>
+                          <tr>
+                                  <td>1</td>
+                              </tr>
+                      </table>
+        
+        
+
+        
+
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">click on borrow button</span>
+  
+  <span class="lead-duration duration">246ms</span>
+
+  </div>
+
+        
+
+
+        
+        
+
+        
+
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">verify releavant message is displaying on the screen.</span>
+  
+  <span class="lead-duration duration">639ms</span>
+
+  </div>
+
+        
+
+
+                  <table class="step-arguments">
+                          <tr>
+                                  <td>Message</td>
+                              </tr>
+                          <tr>
+                                  <td>Based on the details you've entered, we're unable to give you an estimate of your borrowing power with this calculator. For questions, call us on 1800 035 500.</td>
+                              </tr>
+                      </table>
+        
+        
+
+        
+
+        
+
+      </div>
+      </div>
+</div>
+
+
     
-  <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-5">
+  <div class="inner-level hooks-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
       
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -426,13 +468,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-5" class="inner-level collapse collapsable-details ">
+    <div id="after-4" class="inner-level collapse collapsable-details ">
               <div class="hook">
           <div class="brief passed">
-            <span class="keyword indention">Before</span>
-                          <span class="location name">stepdefinitions.Stepdefinitions.initServices()</span>
+            <span class="keyword indention">After</span>
+                          <span class="location name">stepdefinitions.Stepdefinitions.closebrowser()</span>
                         
-  <span class="lead-duration duration">20s 027ms</span>
+  <span class="lead-duration duration">4s 134ms</span>
 
           </div>
 
@@ -444,112 +486,6 @@ $(document).ready(function() {
         </div>
           </div>
   </div>
-
-
-    
-<div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-6">
-    
-<div class="brief passed">
-  <span class="keyword indention">Steps</span>
-  <span class="name"></span>
-  
-
-       <i class="chevron fa fa-fw"></i>
-  </div>
-
-  </div>
-
-  <div id="steps-6" class="inner-level collapse collapsable-details ">
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">Given</span>
-  <span class="name">user launches the browser with base url and clicks on signin button</span>
-  
-  <span class="lead-duration duration">16s 780ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">When</span>
-  <span class="name">user enters "Hemanth11@gmail.com" and "Hemanth@55" and click on signin button</span>
-  
-  <span class="lead-duration duration">9s 431ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">And</span>
-  <span class="name">place order by selecting the "Women" and "Faded Short Sleeve T-shirts"</span>
-  
-  <span class="lead-duration duration">54s 355ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-
-      </div>
-          <div class="step">
-        
-<div class="brief passed">
-  <span class="keyword indention">Then</span>
-  <span class="name">verify "Faded Short Sleeve T-shirts" details are correct in the payment page.</span>
-  
-  <span class="lead-duration duration">219ms</span>
-
-  </div>
-
-        
-
-
-        
-        
-
-        
-
-        
-
-      </div>
-      </div>
-</div>
-
-
-    
 
   </div>
 </div>
